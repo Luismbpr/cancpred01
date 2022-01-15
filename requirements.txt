@@ -3,15 +3,13 @@
 # platform: osx-64
 gunicorn==20.1.0
 flask==1.1.2
-jinja2=3.0.2
-joblib=1.1.0
-numpy=1.18.5
-numpy-base=1.18.5
-numpy-devel=1.18.5
-pandas=1.2.4
-pandas-datareader=0.10.0
-scikit-learn=1.0.2
-py-xgboost=1.5.0
+jinja2==3.0.2
+joblib==1.1.0
+numpy==1.18.5
+pandas==1.2.4
+pandas-datareader==0.10.0
+scikit-learn==1.0.2
+py-xgboost==1.5.0
 _py-xgboost-mutex==2.0
-libxgboost=1.5.0
-xgboost=1.5.0
+libxgboost==1.5.0
+xgboost==1.5.0
