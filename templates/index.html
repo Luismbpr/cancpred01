@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+ 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+ 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+ 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Cancer Prediction</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body text="black">
+	
+	
+	<div class="login">
+		<!--Get input for predict the cancer-->
+		<center>
+			<form action="{{ url_for('predict')}}"method="post">
+				<h1>
+       			<style>
+       				h1 .hdrinfo0001 {color: black; font-size: 28px; text-align: center;}
+       			</style>
+					<p class="hdrinfo0001">Breast Cancer Prediction Using XGBoost Classifier</p>
+				</h1>
+				<h1>
+       			<style>
+       				h1 .hdrinfo0002 {color: black;font-size: 22px; text-align: center;}
+       			</style>
+					<p class="hdrinfo0002">End to End Deployment of a Machine Learning Project</p>
+				</h1>
+				<h2>
+       			<style>
+       				h2 .hdrinfo0003 {color: #3b4665;font-size: 18px; text-align: center; font-style: normal;}
+       				hr
+				{
+				width: 80%;
+				height: 1px;
+				background-color: black;
+				margin-bottom: 7px;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 10px;
+				border-width: 1px;
+				border-color: black;
+				}
+       			</style>
+				<hr>
+       			</style>
+					<p class="hdrinfo0003">Enter the following information for the following fields</p>
+				</h2>
+				<input type="text" name="mean_radius" placeholder="mean radius" required="required" />
+				<input type="text" name="mean_texture" placeholder="mean texture" required="required" />
+				<input type="text" name="mean_perimeter" placeholder="mean perimeter" required="required" />
+				<input type="text" name="mean_area" placeholder="mean area" required="required" />
+				<input type="text" name="mean_smoothness" placeholder="mean smoothness" required="required" />
+				<input type="text" name="mean compactness" placeholder="mean compactness" required="required" />
+				<br>
+				<input type="text" name="mean_concavity" placeholder="mean concavity" required="required" />
+				<input type="text" name="mean_concave_points" placeholder="mean concave points" required="required" />
+				<input type="text" name="mean_symmetry" placeholder="mean symmetry" required="required" />
+				<input type="text" name="mean_fractal_dimension" placeholder="mean fractal dimension" required="required" />
+				<input type="text" name="radius_error" placeholder="radius error" required="required" />
+				<input type="text" name="texture_error" placeholder="texture error" required="required" />
+				<br>
+				<input type="text" name="perimeter_error" placeholder="perimeter error" required="required" />
+				<input type="text" name="area_error" placeholder="area error" required="required" />
+				<input type="text" name="smoothness_error" placeholder="smoothness error" required="required" />
+				<input type="text" name="compactness_error" placeholder="compactness error" required="required" />
+				<input type="text" name="concavity_error" placeholder="concavity error" required="required" />
+				<input type="text" name="concave_points_error" placeholder="concave points error" required="required" />
+				<br>
+				<input type="text" name="symmetry_error" placeholder="symmetry error" required="required" />
+				<input type="text" name="fractal_dimension_error" placeholder="fractal dimension error" required="required" />
+				<input type="text" name="worst_radius" placeholder="worst radius" required="required" />
+				<input type="text" name="worst_texture" placeholder="worst texture" required="required" />
+				<input type="text" name="worst_perimeter" placeholder="worst perimeter" required="required" />
+				<input type="text" name="worst_area" placeholder="worst area" required="required" />
+				<br>
+
+				<input type="text" name="worst_smoothness" placeholder="worst smoothness" required="required" />
+				<input type="text" name="worst_compactness" placeholder="worst compactness" required="required" />
+				<input type="text" name="worst_concavity" placeholder="worst concavity" required="required" />
+				<input type="text" name="worst_concave_points" placeholder="worst concave points" required="required" />
+				<input type="text" name="worst_symmetry" placeholder="worst symmetry" required="required" />
+				<input type="text" name="worst_fractal_dimension" placeholder="worst fractal dimension" required="required" />
+				<br>
+				<h2>
+       			<style>
+       				h2 .hdrinfo0004 {color: #3b4665;font-size: 16px; padding-left: 800px; text-align: center; font-style: oblique;}
+       				hr
+				{
+				width: 85%;
+				height: 1px;
+				background-color: lightgrey;
+				margin-bottom: 7px;
+				margin-right: auto;
+				margin-left: auto;
+				margin-top: 10px;
+				border-width: 1px;
+				border-color: black;
+				}
+       			</style>
+				<hr>
+       			</style>
+					<p class="hdrinfo0004">* All fields must me entered.</p>
+				</h2>
+				<!-- show button-->
+				<style>
+				      .button3 {
+				        display: inline-block;
+				        background-color: #009BC7;
+				        border-radius: 5.1px;
+				        border: 4px double #cccccc;
+				        color: #eeeeee;
+				        text-align: center;
+				        font-size: 15px;
+				        padding: 8px;
+				        width: 250px;
+				        height: 150px;
+				        transition: all 0.5s;
+				        cursor: pointer;
+				        margin: 15px;
+				      }
+				      .button3 span {
+				        cursor: pointer;
+				        display: inline-block;
+				        position: relative;
+				        transition: 0.5s;
+				      }
+				      .button3 span:after {
+				        content: '\00bb';
+				        position: absolute;
+				        opacity: 0;
+				        top: 0;
+				        right: -20px;
+				        transition: 0.5s;
+				      }
+				      .button3:hover {
+				        background-color: #00A8D8;
+				        transition: all .7s;
+				        border-radius: 10.1px;
+				      }
+				      .button3:hover span {
+				        padding-right: 25px;
+				      }
+				      .button3:hover span:after {
+				        opacity: 1;
+				        right: 0;
+				      }
+				</style>
+				<div>
+					<button text="blue" align="center" type="submit" class="button3"><strong><h4>CLICK HERE TO PREDICT </h4></strong>
+						<h4 style="color:darkred; font-size: 15px; opacity: 1;">Malignant(1)</h4>
+						<h4 style="color:Blue; font-size: 15px;">Benign(0)</h4>
+					</button></a>
+				</div>
+			</form>
+		</center> <!--Show predicted output using ML model-->
+		<div>
+			<center>
+				<h1>{{ prediction_text}}</h1>
+			   	<style>
+			    	h2 .att-info01 {
+						color: black;
+						font-size: 18px;
+						text-align: center;
+						}
+			    	</style>			   	
+				<h2>
+					<p class="att-info01">Data Set Information</p>
+				</h2>
+				<style>
+			    	h2 .att-info02 {
+						color: black;
+						font-size: 16px;
+						text-align: left;
+						margin: 2px 10px;
+						}
+			    	</style>			   	
+				<h2>
+					<p class="att-info02">Features are computed from a digitized image of a Fine Needle Aspirate (FNA) of a breast mass.They describe characteristics of the cell nuclei present in the image.</p>
+				</h2>
+				</h2>
+				<style>
+			    	h2 .att-info03 {
+						color: black;
+						font-size: 16px;
+						text-align: left;
+						margin: 2px 10px;
+						}
+			    	</style>			   	
+				<h2>
+					<p class="att-info03">Attribute Information: Ten real-valued features are computed for each cell nucleus.</p>
+				</h2>
+			<br>
+				<style>
+			    	h2 .att-info04 {
+						color: black;
+						padding: 7px;
+						font-size: 14px;
+						text-align: justify;
+						font-style: normal;
+						margin: 2px 10px;
+						}
+			    	</style>			   	
+				<h2>
+					<p class="att-info04">Attribute Information: Ten real-valued features are computed for each cell nucleus.</p>
+					<ul>
+						<li><p class="att-info04" >a) Radius (mean of distances from center to points on the perimeter)</p></li>
+						<li><p class="att-info04" >b) Texture (standard deviation of gray-scale values)</p></li>
+						<li><p class="att-info04" >c) Perimeter</p>
+						<li><p class="att-info04" >d) Area</p>
+						<li><p class="att-info04" >e) Smoothness (local variation in radius lengths)</p></li>
+						<li><p class="att-info04" >f) Compactness (perimeter^2 / area - 1.0)</p></li>
+						<li><p class="att-info04" >g) Concavity (severity of concave portions of the contour)</p></li>
+						<li><p class="att-info04" >h) Concave points (number of concave portions of the contour)</p></li>
+						<li><p class="att-info04" >i) Symmetry</p></li>
+						<li><p class="att-info04" >j) Fractal dimension ("coastline approximation" - 1)</p></li>
+					</ul>
+				</h2>
+			<br>
+
+				<h2>
+					<p>Dataset used:<a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)" style="color: orange;"> CANCER.NET</a></p>
+				</h2>
+			
+       <h2>
+					<p>For more information on the dataset used visit:<a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)" style="color: #3b4665;"> UCI</a></p>
+				<p> For more information about cancer please visit <a href="https://www.cancer.net/" style="color: #ff8886;"> CANCER.NET</a> </p>
+		</h2>
+			<br>
+				<h2>
+					<p>Other Information</p>
+				</h2>
+			<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<style>
+				.fa{
+					padding: 20px; font-size: 30px; width: 30px; text-align: top; text-decoration: none; border-radius: 15%; margin: 5px 2px;}
+					<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+					<style>
+					.fa:hover { opacity: 100; }
+					.fa-github {background: #000000;color:darkorchid;}
+					.fa-linkedin {background: #000000;color:lightblue;}
+					</style>
+					
+				</head>
+				<body>
+					<center>
+				<!-- 	<h2>BY VAIBHAV HARIRAMANI</h2> -->
+				<h2> <p>Created by <a href="https://github.com/vaibhavhariaramani" style="color: orange;"><span>Vaibhav Hariramani</a>&nbsp;</span></p> </h2>
+						<!-- Add font awesome icons-->
+						<a href="https://www.linkedin.com/in/vaibhav-hariramani-087488186/" class="fa fa-linkedin"></a>
+						<a href="https://github.com/vaibhavhariaramani" class="fa fa-github"></a>
+			<br>
+				<h2> <p>Modified by <a href="https://github.com/Luismbpr/Luismbpr/" style="color: #1B2E67;"><span>Luis M.B.P.</a>&nbsp;</span></p> </h2>
+			<br>
+						<!-- Add font awesome icons-->
+						<a href="https://www.linkedin.com/in/luismbp/" class="fa fa-linkedin"></a>
+						<a href="https://github.com/Luismbpr/Luismbpr/" class="fa fa-github"></a>
+					</center>
+					<center>
+				<h2>
+						<p> Dua, D. and Graff, C. (2019). Irvine, CA: University of California, School of Information and Computer Science.<a href="http://archive.ics.uci.edu/ml" style="color: #3b4665;"> UCI Machine Learning Repository</a></p>
+				</h2>						
+						</center>
+					
+				</head>
+			
+		</ul>
+		
+		</center>
+	</div >
+
+	</body>
+	</html>
