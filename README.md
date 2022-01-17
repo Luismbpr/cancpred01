@@ -4,15 +4,14 @@ Creation and Deployment of a Breast Cancer Prediction Model
 ***
 
 ## Table of Contents
-* [Project Deployment](#project-deployment)
 * [About Project](#about-project)
+* [Project Deployment](#project-deployment)
 * [Dataset Information](#dataset-information)
 * [Languages Used](#languages-used)
 * [Other Resources](#other-resources)
 * [Other Information](#other-information)
 
-### Project Deployment
-* [Project deployed on Heroku](https://cancpred01.herokuapp.com/).
+
 
 ***
 
@@ -22,6 +21,8 @@ Creation and Deployment of a Breast Cancer Prediction Model
 <p> Model creation.</p>
 <p> Model deployment.</p>
 
+### Project Deployment
+* [Project deployed on Heroku](https://cancpred01.herokuapp.com/).
 
 ## Project Information
 The dataset is comprised of mutliple features which are computed from a digitized image of a fine needle aspirate (FNA) of a breast mass.
