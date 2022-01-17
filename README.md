@@ -32,13 +32,13 @@ The dataset contains information about whether those cells were benign or malign
 - <i>Dua, D. and Graff, C. (2019). , CA: University of California, School of Information and Computer Science. <a href="https://github.com/vaibhavhariaramani/Breast_Cancer_Detection_ML-with-Web-End-Deployment" target="http://archive.ics.uci.edu/mlk"> UCI Machine Learning Repository Irvine</a>.</i>
 
 #### Languages Used
-* Python
-- Data Analysis.
-- Model Creation.
-- Part of Model Deployment.
+* Python <br>
+-- Data Analysis. <br>
+-- Model Creation. <br>
+-- Part of Model Deployment.
 
-* HTML
-- Website - Front End for model deployment.
+* HTML <br>
+-- Website - Front End for model deployment.
 
 #### Other Resources
 * Flask
